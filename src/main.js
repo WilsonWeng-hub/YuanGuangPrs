@@ -4,12 +4,17 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Element from 'element-ui'
-import "element-ui/lib/theme-chalk/index.css"
 import axios from 'axios'
 import store from './store'
+import permission from './permission'
+import './axios'
+import mavonEitor from 'mavon-editor'
 
+import "element-ui/lib/theme-chalk/index.css"
+import 'mavon-editor/dist/css/index.css'
 Vue.config.productionTip = false
 Vue.use(Element)
+Vue.use(mavonEitor)
 Vue.prototype.$axios = axios
 /* eslint-disable no-new */
 new Vue({
@@ -17,5 +22,5 @@ new Vue({
   router,
   store,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
 })

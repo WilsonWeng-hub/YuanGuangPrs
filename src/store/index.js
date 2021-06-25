@@ -14,6 +14,8 @@ export default new Vuex.Store({
       localStorage.setItem("token",token)
     },
     SET_USERINFO: (state, userInfo) => {
+      console.log('SET_USERINFO')
+      console.log(userInfo)
       state.userInfo = userInfo
       sessionStorage.setItem("userInfo",JSON.stringify(userInfo))
     },
@@ -27,5 +29,9 @@ export default new Vuex.Store({
   },
   actions:{},
   modules:{},
-  getters:{}
+  getters:{
+    getUsers: state => {
+      return state.userInfo
+    }
+  }
 })

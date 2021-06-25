@@ -52,14 +52,16 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           const _this = this
-          this.$axios.post("http://localhost:8888/login",this.LoginForm).then(res => {
+          this.$axios.post("/login",this.LoginForm).then(res => {
             // console.log(res)
-            // console.log(res.headers)
+            console.log(res.headers)
             // 获取验证信息，保存到Store
-            const jwt = res.headers['authorization']
+            const token = res.headers['authorization']
             const userInfo = res.data.data;
-            // console.log(userInfo)
-            _this.$store.commit("SET_TOKEN",jwt)
+            console.log('userInfo')
+
+            console.log(userInfo)
+            _this.$store.commit("SET_TOKEN",token)
             _this.$store.commit("SET_USERINFO",userInfo)
             _this.$router.push("/blogs")
           })
@@ -90,7 +92,7 @@ export default {
   }
 
   .Login-logo {
-      width: 50px;.
+      width: 50px;
       height: 50px;
       margin-top: 5px;
   }

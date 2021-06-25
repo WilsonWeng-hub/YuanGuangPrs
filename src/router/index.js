@@ -26,8 +26,11 @@ Vue.use(VueRouter)
     },
     {
       path: '/blog/add',
-      name: 'BlogEdit',
-      component: BlogEdit
+      name: 'BlogAdd',
+      component: BlogEdit,
+      meta:{
+        requireAuth: true
+      }
     },
     {
       path: '/blog/:blogId',
@@ -37,7 +40,10 @@ Vue.use(VueRouter)
     {
       path: '/blog/:blogId/edit',
       name: 'BlogEdit',
-      component: BlogEdit
+      component: BlogEdit,
+      meta:{
+        requireAuth: true
+      }
     }
   ]
 
